@@ -108,7 +108,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
     neovim
     logisim-evolution
     htop
@@ -204,7 +203,6 @@
  programs.zsh = {
     enable = true;
     shellAliases = {
-      vim = "nvim";
       ll="ls -la";
     };
     enableCompletion = true;
@@ -233,7 +231,6 @@
     libcxx
     libcxxabi
     libcxxStdenv
-    # ...
   ];
 
 
