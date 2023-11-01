@@ -124,7 +124,6 @@
     wget
     wl-clipboard
     unzip
-    yadm
     zip
     zsh
 
