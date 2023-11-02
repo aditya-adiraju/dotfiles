@@ -116,6 +116,7 @@
     google-chrome
     gnome.gnome-terminal
     gnome3.gnome-tweaks
+    cowsay
     oh-my-zsh
     python3
     nix-ld
