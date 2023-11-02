@@ -125,6 +125,8 @@
     unzip
     zip
     zsh
+    tmux
+
 
     (neovim.override {
         vimAlias = true;
@@ -145,6 +147,7 @@
             vim-airline-themes
             vim-airline
             nvim-lspconfig
+            chad
             coc-nvim
             coc-clangd
           ];
