@@ -183,7 +183,7 @@
     clang_16
     clang-tools_16
     libgcc
-    nodejs
+    nodePackages_latest.nodejs
     sageWithDoc
     jupyter
 
