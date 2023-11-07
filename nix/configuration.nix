@@ -139,6 +139,7 @@
             set shiftwidth=2 expandtab
             set smarttab
             set number
+            set clipboard+=unnamedplus
             let g:airline_theme='deus'
             let g:airline_powerline_fonts = 1 
           '';
