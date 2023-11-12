@@ -142,6 +142,9 @@
             set clipboard+=unnamedplus
             let g:airline_theme='deus'
             let g:airline_powerline_fonts = 1 
+
+            inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+            inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
           '';
           packages.myPlugins = with vimPlugins; {
           start = [
