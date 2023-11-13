@@ -134,6 +134,7 @@
     zip
     zsh
     tmux
+    kitty
 
 
     (neovim.override {
