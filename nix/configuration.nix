@@ -39,7 +39,14 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
+  # Enable Hyprland <
+  services.xserver.displayManager.gdm.wayland = true;  
+  
+  programs.hyprland = {    
+      enable = true;    
+      xwayland.enable = true;    
+  };
+  
   # Configurekeymap in X11
   services.xserver = {
     layout = "us";
