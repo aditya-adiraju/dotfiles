@@ -123,7 +123,7 @@
     git
     gh
     google-chrome
-    gnome.gnome-terminal
+    tilix
     gnome3.gnome-tweaks
     cowsay
     oh-my-zsh
@@ -152,6 +152,8 @@
             set clipboard+=unnamedplus
             let g:airline_theme='deus'
             let g:airline_powerline_fonts = 1 
+            highlight Normal ctermbg=NONE guibg=NONE
+
 
             inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
             inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
