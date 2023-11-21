@@ -137,6 +137,9 @@
     zsh
     tmux
     kitty
+    xournal
+    gimp
+    gdk-pixbuf
 
 
     (neovim.override {
@@ -144,9 +147,9 @@
         viAlias = true;
         configure = {
           customRC = ''
-            set background=dark
-            colorscheme PaperColor
             set shiftwidth=2 expandtab
+            set termguicolors
+            colorscheme monokai_pro
             set smarttab
             set number
             set clipboard+=unnamedplus
@@ -161,12 +164,14 @@
           packages.myPlugins = with vimPlugins; {
           start = [
             papercolor-theme
+            vim-monokai-pro
             vim-airline-themes
             vim-airline
             nvim-lspconfig
             chad
             coc-nvim
             coc-clangd
+            vim-multiple-cursors
           ];
           opt = [];
     	};
