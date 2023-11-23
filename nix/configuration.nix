@@ -137,9 +137,12 @@
     zsh
     tmux
     kitty
-    xournal
+    obsidian
     gimp
     gdk-pixbuf
+    gdb
+    pwndbg
+
 
 
     (neovim.override {
