@@ -14,6 +14,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nix.autoOptimiseStore = true;
+
   # Enable Nix Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -40,14 +42,14 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   # Enable Hyprland <
-  services.xserver.displayManager.gdm.wayland = true;  
-  
-  programs.hyprland = {    
-      enable = true;    
-      xwayland.enable = true;    
-  };
+  # services.xserver.displayManager.gdm.wayland = true;  
+  # 
+  # programs.hyprland = {    
+  #     enable = true;    
+  #     xwayland.enable = true;    
+  # };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
 
   # Configurekeymap in X11
   services.xserver = {
@@ -105,7 +107,6 @@
     packages = with pkgs; [
       discord
       firefox
-      ghidra
       neofetch
     ];
   };
@@ -136,14 +137,11 @@
     zip
     zsh
     tmux
-    kitty
-    obsidian
     gimp
     gdk-pixbuf
     gdb
     pwndbg
-
-
+    xournalpp
 
     (neovim.override {
         vimAlias = true;
@@ -284,6 +282,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
