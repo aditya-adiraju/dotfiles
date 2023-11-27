@@ -14,10 +14,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.autoOptimiseStore = true;
 
   # Enable Nix Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Auto optimize hardlinks
+  nix.settings.auto-optimise-store = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -248,7 +250,7 @@
     stdenv.cc.cc
     zlib
     fuse3
-    icu
+  icu
     zlib
     nss
     openssl
