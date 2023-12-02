@@ -188,7 +188,6 @@
       vscodeExtensions = with vscode-extensions; [
 	ms-python.python
       ]
-      ];
     })
     # build tools
     # Things that should be migrated to shell.nix or flake.nix
