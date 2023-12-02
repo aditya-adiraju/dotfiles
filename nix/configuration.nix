@@ -107,7 +107,6 @@
     description = "Aditya Adiraju";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      discord
       firefox
       neofetch
     ];
@@ -120,8 +119,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    webcord
     neovim
-    logisim-evolution
     htop
     git
     gh
@@ -144,6 +143,8 @@
     gdb
     pwndbg
     xournalpp
+    haskellPackages.haskell-language-server
+    haskellPackages.ghc
 
     (neovim.override {
         vimAlias = true;
@@ -185,32 +186,18 @@
     (vscode-with-extensions.override { 
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
-        ms-vscode.cpptools
-        ms-vscode-remote.remote-ssh
-	ms-python.vscode-pylance
 	ms-python.python
       ]
-      # Concise version from the vscode market place when not available in the default set.
-      ++ vscode-utils.extensionsFromVscodeMarketplace [
-	{
-	  name = "code-runner";
-	  publisher = "formulahendry";
-	  version = "0.6.33";
-	  sha256 = "166ia73vrcl5c9hm4q1a73qdn56m0jc7flfsk5p5q41na9f10lb0";
-	}
       ];
     })
     # build tools
     # Things that should be migrated to shell.nix or flake.nix
     gnumake
-    stdenv
+    # stdenv
     clang_16
     clang-tools_16
     libgcc
     nodePackages_latest.nodejs
-    sageWithDoc
-    jupyter
-
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -250,15 +237,12 @@
     stdenv.cc.cc
     zlib
     fuse3
-  icu
+    icu
     zlib
     nss
     openssl
     curl
     expat
-    libcxx
-    libcxxabi
-    libcxxStdenv
   ];
 
 
