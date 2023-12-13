@@ -187,7 +187,7 @@
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
 	ms-python.python
-      ]
+      ];
     })
     # build tools
     # Things that should be migrated to shell.nix or flake.nix
