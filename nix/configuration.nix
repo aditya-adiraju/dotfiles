@@ -59,6 +59,9 @@
     xkbVariant = "";
   };
 
+  # Enable ExpressVPN 
+  services.expressvpn.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
   
@@ -145,6 +148,7 @@
     xournalpp
     haskellPackages.haskell-language-server
     haskellPackages.ghc
+    expressvpn
 
     (neovim.override {
         vimAlias = true;
