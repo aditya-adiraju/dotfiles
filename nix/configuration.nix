@@ -149,6 +149,8 @@
     haskellPackages.haskell-language-server
     haskellPackages.ghc
     sageWithDoc
+    toybox
+    ghidra-bin
 
     (neovim.override {
         vimAlias = true;
