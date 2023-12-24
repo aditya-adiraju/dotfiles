@@ -53,16 +53,16 @@
 
   # environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
 
+  # services.openvpn.servers = {
+  #   indiaVPN = { config = '' config /etc/openvpn/my_expressvpn_india_via_uk_udp.conf''; };
+  # };
+
   # Configurekeymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
 
-  # Enable ExpressVPN 
-  services.expressvpn.enable = true;
-
-  # Enable CUPS to print documents.
   services.printing.enable = true;
   
   # Install a bunch of fonts
@@ -148,7 +148,7 @@
     xournalpp
     haskellPackages.haskell-language-server
     haskellPackages.ghc
-    expressvpn
+    sageWithDoc
 
     (neovim.override {
         vimAlias = true;
