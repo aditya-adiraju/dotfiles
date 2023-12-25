@@ -5,10 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -115,12 +111,15 @@
     ];
   };
 
+  # Enable ZSH
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
   environment.systemPackages = with pkgs; [
     webcord
     neovim
@@ -149,45 +148,10 @@
     haskellPackages.haskell-language-server
     haskellPackages.ghc
     sageWithDoc
+    jupyter
     toybox
     ghidra-bin
-
-    (neovim.override {
-        vimAlias = true;
-        viAlias = true;
-        configure = {
-          customRC = ''
-            set shiftwidth=2 expandtab
-            set termguicolors
-            colorscheme monokai_pro
-            set smarttab
-            set number
-            set clipboard+=unnamedplus
-            let g:airline_theme='deus'
-            let g:airline_powerline_fonts = 1 
-            highlight Normal ctermbg=NONE guibg=NONE
-
-
-            inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
-            inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
-          '';
-          packages.myPlugins = with vimPlugins; {
-          start = [
-            papercolor-theme
-            vim-monokai-pro
-            vim-airline-themes
-            vim-airline
-            nvim-lspconfig
-            chad
-            coc-nvim
-            coc-clangd
-            vim-multiple-cursors
-          ];
-          opt = [];
-    	};
-      };
-    })
-
+    xclip
     vscode
     (vscode-with-extensions.override { 
       # When the extension is already available in the default extensions set.
@@ -220,21 +184,6 @@
 
  users.defaultUserShell = pkgs.zsh;
 
- programs.zsh = {
-    enable = true;
-    shellAliases = {
-      ll="ls -la";
-    };
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    promptInit = "";
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "python" "man" ];
-      theme = "lukerandall";
-    };
-
-  };
 
   programs.nix-ld.enable = true;
   

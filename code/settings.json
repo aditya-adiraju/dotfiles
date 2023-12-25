@@ -1,0 +1,132 @@
+{
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.confirmDelete": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "files.associations": {
+        "*.css": "tailwindcss",
+        "*.sage": "python"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "cmake.configureOnOpen": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.defaultInterpreterPath": "/bin/python",
+    "[c]": {
+        
+        "editor.wordBasedSuggestions": "off",
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "workbench.editor.enablePreview": false,
+    "git.confirmSync": false,
+    "[dockerfile]": {
+        
+        "editor.quickSuggestions": {
+            "strings": true
+        }
+    },
+    "[plaintext]": {
+
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false
+    },
+
+    "latex-workshop.latex.tools": [
+        {
+         "name": "latexmk",
+         "command": "latexmk",
+         "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-pdf",
+          "-outdir=%OUTDIR%",
+          "%DOC%"
+         ],
+         "env": {}
+        },
+        {
+         "name": "xelatex",
+         "command": "xelatex",
+         "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+         ],
+         "env": {}
+        },
+        {
+         "name": "pdflatex",
+         "command": "pdflatex",
+         "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+         ],
+         "env": {}
+        },
+        {
+         "name": "bibtex",
+         "command": "bibtex",
+         "args": [
+          "%DOCFILE%"
+         ],
+         "env": {}
+        }
+       ],
+       "latex-workshop.latex.recipes": [
+        {
+         "name": "pdfLaTeX",
+         "tools": [
+          "pdflatex"
+         ]
+        },
+        {
+         "name": "latexmk 🔃",
+         "tools": [
+          "latexmk"
+         ]
+        },
+        {
+         "name": "xelatex",
+         "tools": [
+          "xelatex"
+         ]
+        },
+        {
+         "name": "pdflatex ➞ bibtex ➞ pdflatex`×2",
+         "tools": [
+          "pdflatex",
+          "bibtex",
+          "pdflatex",
+          "pdflatex"
+         ]
+        },
+        {
+        "name": "xelatex ➞ bibtex ➞ xelatex`×2",
+        "tools": [
+          "xelatex",
+          "bibtex",
+          "xelatex",
+          "xelatex"
+         ]
+        }
+       ],        
+    "window.autoDetectColorScheme": true,
+    "editor.fontFamily": "'intel One Mono Regular', 'monospace', 'monospace'",
+    "solidity.telemetry": true,
+    "C_Cpp.default.compilerPath": "",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "clangd.path": "/home/aditya/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd",
+    "window.zoomLevel": 1
+
+}
