@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/chadtree",
     url = "https://github.com/ms-jpq/chadtree"
   },
+  ["coc-jedi"] = {
+    loaded = true,
+    path = "/home/aditya/.local/share/nvim/site/pack/packer/start/coc-jedi",
+    url = "https://github.com/pappasam/coc-jedi"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/coc.nvim",
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/vim-polyglot",
     url = "https://github.com/sheerun/vim-polyglot"
+  },
+  ["vim-sage"] = {
+    loaded = true,
+    path = "/home/aditya/.local/share/nvim/site/pack/packer/start/vim-sage",
+    url = "https://github.com/petRUShka/vim-sage"
   }
 }
 

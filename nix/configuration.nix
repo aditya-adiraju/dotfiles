@@ -130,10 +130,10 @@
     tilix
     gnome3.gnome-tweaks
     cowsay
-    oh-my-zsh
-    python3
     nix-ld
     sublime4
+    oh-my-zsh
+	(python3.withPackages(ps: with ps; [ sage requests matplotlib notebook]))
     wget
     wl-clipboard
     unzip
@@ -148,11 +148,13 @@
     haskellPackages.haskell-language-server
     haskellPackages.ghc
     sageWithDoc
-    jupyter
     toybox
     ghidra-bin
+	spotify
     xclip
     vscode
+	man-pages
+	man-pages-posix
     (vscode-with-extensions.override { 
       # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
@@ -165,7 +167,7 @@
     # stdenv
     clang_16
     clang-tools_16
-    libgcc
+	gcc
     nodePackages_latest.nodejs
   ];
 
@@ -183,6 +185,9 @@
   # };
 
  users.defaultUserShell = pkgs.zsh;
+
+  # I love man pages
+  documentation.dev.enable = true;
 
 
   programs.nix-ld.enable = true;

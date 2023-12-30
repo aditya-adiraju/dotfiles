@@ -1,3 +1,4 @@
+# Fun aliases I like
 alias ll="ls -la"
 alias vi="nvim"
 alias vim="nvim"

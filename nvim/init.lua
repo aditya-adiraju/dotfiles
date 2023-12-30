@@ -20,11 +20,15 @@ require('packer').startup(function(use)
   -- Autocomplete
   use 'neovim/nvim-lspconfig'
   use { 'neoclide/coc.nvim', branch='release' }
-
+  use { 'pappasam/coc-jedi',  build='yarn install --frozen-lockfile && yarn build', branch='main' }
+  
 
   use 'nvim-treesitter/nvim-treesitter'
   use 'sheerun/vim-polyglot'
   use { 'ms-jpq/chadtree', branch='chad', build='python3 -m chadtree deps' }
+  use 'petRUShka/vim-sage'
+
+  
 
 
  
@@ -85,7 +89,7 @@ function _G.check_back_space()
 end
 
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset("i", "<tab>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<tab>\<c-r>=coc#on_enter()\<tab>"]], opts)
+keyset("i", "<tab>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<tab>"]], opts)
 
 
 keyset('', '<leader>v', '<cmd>CHADopen<cr>', {noremap = true})
