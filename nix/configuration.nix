@@ -133,7 +133,7 @@
     nix-ld
     sublime4
     oh-my-zsh
-	(python3.withPackages(ps: with ps; [ sage requests matplotlib notebook]))
+	(python3.withPackages(ps: with ps; [ pwntools pycryptodome jedi-language-server ipython]))
     wget
     wl-clipboard
     unzip
@@ -147,7 +147,6 @@
     xournalpp
     haskellPackages.haskell-language-server
     haskellPackages.ghc
-    sageWithDoc
     toybox
     ghidra-bin
 	spotify

@@ -3,6 +3,7 @@ local execute = vim.api.nvim_command
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
+local fn = vim.fn
 
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({
@@ -49,7 +50,7 @@ end)
 -- VIM CONFIGS
 
 vim.g.mapleader = ','
-vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+vim.opt.clipboard:append {'unnamedplus' }
 vim.g.airline_theme = 'catppuccin'
 
 
