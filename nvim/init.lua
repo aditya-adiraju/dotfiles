@@ -35,8 +35,8 @@ require('packer').startup(function(use)
 
   -- Colors and pretty doodads
   use 'norcalli/nvim-colorizer.lua'
-  use 'windwp/nvim-autopairs'
   use 'mhartington/formatter.nvim'
+  use 'windwp/nvim-autopairs'
 
   -- Themes
   use 'vim-airline/vim-airline'
@@ -83,8 +83,18 @@ MUtils.completion_confirm=function()
     end
 end
 
-remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+require('lint').linters_by_ft = {
+  javascript = {'eslint'},
+  typescript = {'eslint'}
+}
 
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})
+
+ 
 
 -- VIM CONFIGS
 
@@ -133,11 +143,13 @@ local opts = {silent = true, noremap = true, expr = true, replace_keycodes = fal
 keyset("i", "<tab>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<tab>"]], opts)
 
 keyset('', '<leader>v', '<cmd>CHADopen<cr>', {noremap = true})
-keyset('', '<leader>p', '<cmd>Format<cr>', {noremap = true})
-keyset('', '<leader>P', '<cmd>FormatWrite<cr>', {noremap = true})
+keyset('n', '<leader>f', '<Plug>(coc-format-selected)')
+keyset('v', '<leader>f', '<Plug>(coc-format-selected)')
+keyset ('', '<leader>f', '<cmd>:CocCommand prettier.forceFormatDocument<CR>')
 
 local builtin = require('telescope.builtin')
 keyset('n', '<leader>ff', builtin.find_files, {})
 keyset('n', '<leader>fg', builtin.live_grep, {})
 keyset('n', '<leader>fb', builtin.buffers, {})
 keyset('n', '<leader>fh', builtin.help_tags, {})
+remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
