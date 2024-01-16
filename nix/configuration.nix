@@ -68,12 +68,11 @@
     noto-fonts-emoji
     liberation_ttf
     fira-code
-    fira-code-symbols
     powerline-fonts
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   # Enable sound with pipewire.
@@ -121,53 +120,51 @@
   # $ nix search wget
 
   environment.systemPackages = with pkgs; [
-    webcord
     neovim
+    zsh
+    oh-my-zsh
     htop
     git
     gh
-    google-chrome
-    tilix
-    gnome3.gnome-tweaks
-    cowsay
-    nix-ld
-    sublime4
-    oh-my-zsh
-	(python3.withPackages(ps: with ps; [ pwntools pycryptodome jedi-language-server ipython]))
-    wget
-    wl-clipboard
-    unzip
-    zip
-    zsh
-    tmux
-    gimp
-    gdk-pixbuf
     gdb
     pwndbg
-    xournalpp
-    haskellPackages.haskell-language-server
-    haskellPackages.ghc
-    toybox
-    ghidra-bin
-	spotify
+    tilix
+    tmux
+    nix-ld
+    google-chrome
+    gnome3.gnome-tweaks
+
+	(python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython]))
+    wget
+    wl-clipboard
     xclip
+    unzip
+    zip
+    gimp
+    gdk-pixbuf
+    xournalpp
+    busybox
+    ghidra-bin
+  	spotify
     vscode
-	man-pages
-	man-pages-posix
+  	man-pages
+  	man-pages-posix
     (vscode-with-extensions.override { 
-      # When the extension is already available in the default extensions set.
       vscodeExtensions = with vscode-extensions; [
-	ms-python.python
+	      ms-python.python
       ];
     })
+
     # build tools
     # Things that should be migrated to shell.nix or flake.nix
     gnumake
     # stdenv
     clang_16
     clang-tools_16
-	gcc
+  	gcc
     nodePackages_latest.nodejs
+    nodePackages_latest.typescript-language-server
+    nodePackages_latest.prettier
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -203,9 +200,13 @@
     expat
   ];
 
-
   # default editor
   environment.variables.EDITOR = "nvim";
+  programs.neovim = {
+    viAlias = true;
+    vimAlias = true;
+  };
+
   # List services that you want to enable:
   programs.git.config = {
     user.email = "adiraju@student.ubc.ca";
