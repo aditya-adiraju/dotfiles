@@ -138,6 +138,7 @@
     wget
     wl-clipboard
     xclip
+    trash-cli
     unzip
     zip
     gimp
