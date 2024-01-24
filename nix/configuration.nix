@@ -147,6 +147,7 @@
     ghidra-bin
   	spotify
     vscode
+    zathura
   	man-pages
   	man-pages-posix
     (vscode-with-extensions.override { 
