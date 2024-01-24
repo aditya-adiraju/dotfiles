@@ -130,6 +130,7 @@
     google-chrome
 	zoom-us
     gnome3.gnome-tweaks
+	gnome.gnome-themes-extra
 
 	(python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython]))
     wget
@@ -167,6 +168,7 @@
     nodePackages.typescript-language-server
     nodePackages.prettier
     nodePackages.http-server
+    nodePackages.live-server
     nodePackages.eslint
     nodePackages."@tailwindcss/language-server"
     nodePackages."@angular/cli"

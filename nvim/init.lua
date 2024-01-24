@@ -28,7 +28,11 @@ require('packer').startup(function(use)
   use "williamboman/mason.nvim"
   use 'mfussenegger/nvim-lint'
 
-  use "Github/copilot.vim"
+  -- MOM SAID NO :(
+  -- use "Github/copilot.vim"
+
+  -- Live server 
+  use "barrett-ruth/live-server.nvim"
 
   -- COC stuff
   use { 'neoclide/coc.nvim', branch='release' }
@@ -83,6 +87,7 @@ require('colorizer').setup()
 require('gitsigns').setup()
 require('nvim-ts-autotag').setup()
 require("mason").setup()
+require("live-server").setup()
 -- I AM TOO LAZY TO MAKE THIS LOOK PRETTY
 local remap = vim.api.nvim_set_keymap
 local npairs = require('nvim-autopairs')
