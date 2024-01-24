@@ -47,11 +47,10 @@
   #     xwayland.enable = true;    
   # };
 
-  # environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
+  # docker support
+  virtualisation.docker.enable = true;
 
-  # services.openvpn.servers = {
-  #   indiaVPN = { config = '' config /etc/openvpn/my_expressvpn_india_via_uk_udp.conf''; };
-  # };
+  environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
 
   # Configurekeymap in X11
   services.xserver = {
@@ -93,7 +92,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Enable flatpak repos
   services.flatpak.enable = true;
@@ -103,7 +102,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Aditya Adiraju";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
       neofetch
@@ -115,9 +114,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
 
   environment.systemPackages = with pkgs; [
     neovim
@@ -132,6 +128,7 @@
     tmux
     nix-ld
     google-chrome
+	zoom-us
     gnome3.gnome-tweaks
 
 	(python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython]))
@@ -145,6 +142,7 @@
     gdk-pixbuf
     xournalpp
     busybox
+	ripgrep
     ghidra-bin
   	spotify
     vscode
@@ -158,14 +156,22 @@
 
     # build tools
     # Things that should be migrated to shell.nix or flake.nix
+	docker
+	docker-compose
     gnumake
     # stdenv
     clang_16
     clang-tools_16
   	gcc
-    nodePackages_latest.nodejs
-    nodePackages_latest.typescript-language-server
-    nodePackages_latest.prettier
+    nodePackages.nodejs
+    nodePackages.typescript-language-server
+    nodePackages.prettier
+    nodePackages.http-server
+    nodePackages.eslint
+    nodePackages."@tailwindcss/language-server"
+    nodePackages."@angular/cli"
+
+	emscripten
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -204,6 +210,7 @@
   # default editor
   environment.variables.EDITOR = "nvim";
   programs.neovim = {
+    enable = true;
     viAlias = true;
     vimAlias = true;
   };

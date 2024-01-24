@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/home/aditya/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/Github/copilot.vim"
+  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/formatter.nvim",
@@ -104,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/aditya/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -113,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  nerdcommenter = {
+    loaded = true,
+    path = "/home/aditya/.local/share/nvim/site/pack/packer/start/nerdcommenter",
+    url = "https://github.com/preservim/nerdcommenter"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -158,6 +173,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["tailwindcss-colors.nvim"] = {
+    loaded = true,
+    path = "/home/aditya/.local/share/nvim/site/pack/packer/start/tailwindcss-colors.nvim",
+    url = "https://github.com/themaxmarchuk/tailwindcss-colors.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,

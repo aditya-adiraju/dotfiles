@@ -106,5 +106,15 @@
   "C_Cpp.default.compilerPath": "",
   "C_Cpp.intelliSenseEngine": "disabled",
   "clangd.path": "/home/aditya/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/16.0.2/clangd_16.0.2/bin/clangd",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -104,3 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
