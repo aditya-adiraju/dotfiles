@@ -10,3 +10,4 @@ config/ghidra/
 *cache*
 *Log*
 *log*
+*dump*

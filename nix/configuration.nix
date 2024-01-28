@@ -5,7 +5,8 @@
 { config, pkgs, ... }:
 
 {
-
+  
+  # import files
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -39,16 +40,11 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  # Enable Hyprland <
-  # services.xserver.displayManager.gdm.wayland = true;  
-  # 
-  # programs.hyprland = {    
-  #     enable = true;    
-  #     xwayland.enable = true;    
-  # };
 
   # docker support
   virtualisation.docker.enable = true;
+
+  # VirtualBox Support
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
   virtualisation.virtualbox.guest.enable = true;
@@ -64,20 +60,6 @@
 
   services.printing.enable = true;
   
-  # Install a bunch of fonts
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    powerline-fonts
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
-  ];
-
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -118,77 +100,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-# Adding the package to `nixpkgs.overlays`. This means that when we use `pkgs` the package will be added to
-# it. Overlay function takes two arguments: `final` and `prev`. We do not need these for this case as we are
-# not overriding something that exists we are adding something new, so I used `_` for those. I am creating a
-# new package called `qemu-espressif` and setting that equal to the flake's defaultPackage. I did this
-# because this flake only defines a defaultPackage (it should define an overlay, and a package)
-  environment.systemPackages = with pkgs; [
-    neovim
-    zsh
-    oh-my-zsh
-    htop
-    git
-    gh
-    gdb
-    pwndbg
-    tilix
-    tmux
-    nix-ld
-    google-chrome
-	zoom-us
-    gnome3.gnome-tweaks
-    gnome.gnome-themes-extra
-    qemu-espressif
-
-	(python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython ]))
-  wget
-    wl-clipboard
-    xclip
-    trash-cli
-    unzip
-    zip
-    gimp
-    gnuradio
-    virtualbox
-    gdk-pixbuf
-    xournalpp
-    busybox
-	ripgrep
-    ghidra-bin
-  	spotify
-    vscode
-    zathura
-  	man-pages
-  	man-pages-posix
-	  # Oh god it's TeXLive my worst enemy (The storage kills)
-	  texliveFull
-    (vscode-with-extensions.override { 
-      vscodeExtensions = with vscode-extensions; [
-	      ms-python.python
-      ];
-    })
-
-    # build tools
-    # Things that should be migrated to shell.nix or flake.nix
-	docker
-	docker-compose
-    gnumake
-    # stdenv
-    clang_16
-    clang-tools_16
-  	gcc
-    nodePackages.nodejs
-    nodePackages.typescript-language-server
-    nodePackages.prettier
-    nodePackages.http-server
-    nodePackages.live-server
-    nodePackages.eslint
-    nodePackages."@tailwindcss/language-server"
-    nodePackages."@angular/cli"
-
-	emscripten
-  ];
 
   nixpkgs.config.permittedInsecurePackages = [
        "openssl-1.1.1w"
