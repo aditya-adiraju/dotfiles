@@ -1,0 +1,11 @@
+# GIMP gimp-airbrush-tool options
+
+(foreground (color-rgb 0.44716391827325297 0.34175203108442248 0.59210526315789469))
+(brush "2. Hardness 050")
+(dynamics "Dynamics Off")
+(gradient "FG to BG (RGB)")
+(palette "Color History")
+(brush-size 1)
+(brush-hardness 0.5)
+
+# end of gimp-airbrush-tool options

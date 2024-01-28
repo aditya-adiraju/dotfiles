@@ -1,0 +1,12 @@
+# This takes up too much space
+config/google-chrome/
+node_modules
+config/tmux/plugins/
+config/spotify/
+config/github-copilot/
+config/Code/
+config/ghidra/
+*Cache*
+*cache*
+*Log*
+*log*

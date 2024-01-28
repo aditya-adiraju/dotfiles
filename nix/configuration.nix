@@ -49,6 +49,10 @@
 
   # docker support
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.x11 = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
 
@@ -102,7 +106,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Aditya Adiraju";
-    extraGroups = [ "docker" "networkmanager" "wheel" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" "user-with-access-to-virtualbox" ];
     packages = with pkgs; [
       firefox
       neofetch
@@ -114,7 +118,11 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
+# Adding the package to `nixpkgs.overlays`. This means that when we use `pkgs` the package will be added to
+# it. Overlay function takes two arguments: `final` and `prev`. We do not need these for this case as we are
+# not overriding something that exists we are adding something new, so I used `_` for those. I am creating a
+# new package called `qemu-espressif` and setting that equal to the flake's defaultPackage. I did this
+# because this flake only defines a defaultPackage (it should define an overlay, and a package)
   environment.systemPackages = with pkgs; [
     neovim
     zsh
@@ -130,16 +138,19 @@
     google-chrome
 	zoom-us
     gnome3.gnome-tweaks
-	gnome.gnome-themes-extra
+    gnome.gnome-themes-extra
+    qemu-espressif
 
-	(python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython]))
-    wget
+	(python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython ]))
+  wget
     wl-clipboard
     xclip
     trash-cli
     unzip
     zip
     gimp
+    gnuradio
+    virtualbox
     gdk-pixbuf
     xournalpp
     busybox
@@ -150,6 +161,8 @@
     zathura
   	man-pages
   	man-pages-posix
+	  # Oh god it's TeXLive my worst enemy (The storage kills)
+	  texliveFull
     (vscode-with-extensions.override { 
       vscodeExtensions = with vscode-extensions; [
 	      ms-python.python
