@@ -425,3 +425,8 @@ keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
 keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
 -- Resume latest coc list
 keyset("n", "<space>p", ":<C-u>CocListResume<cr>", opts)
+
+local expr_options = { expr = true, silent = true }
+--Remap for dealing with visual line wraps
+keyset("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
+keyset("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)

@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 
+sudo rm -rf /etc/nixos/
+sudo ln -sf $PWD/nix/ /etc/nixos
 
-# remove exisiting files
-sudo rm /etc/nixos/configuration.nix
-sudo rm /etc/nixos/hardware-configuration.nix
-sudo rm /etc/nixos/flake.nix
-sudo rm -rf $HOME/.config/
-
-# Create symlinks for nixos from PWD to their respective locations
-sudo ln -s $PWD/nix/configuration.nix /etc/nixos/configuration.nix
-sudo ln -s $PWD/nix/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
-sudo ln -s $PWD/nix/flake.nix /etc/nixos/flake.nix
-ln -sf $PWD/config/ $HOME/.config
+cd config/ 
+for d in *; do
+	echo "Made symlinks for: ${d}"
+	rm -rf $HOME/.config/$d
+	ln -sf $PWD/$d $HOME/.config/$d
+done
+cd ..
 
 # Set ZSH env to source .zshrc config from .config instead of $HOME
 echo "ZDOTDIR=$HOME/.config/zsh" > .zshenv

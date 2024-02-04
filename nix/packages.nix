@@ -15,7 +15,7 @@
 	  zoom-us
     gnome3.gnome-tweaks
     gnome.gnome-themes-extra
-    (python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython ]))
+    (python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython z3-solver ]))
     wget
     wl-clipboard
     xclip
