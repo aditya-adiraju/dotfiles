@@ -18,5 +18,6 @@
       }
     }
   }
+  "diagnostic.checkCurrentLine": true
 }
 

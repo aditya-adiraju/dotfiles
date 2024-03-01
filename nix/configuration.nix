@@ -53,9 +53,9 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
 
   # Configurekeymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   services.printing.enable = true;

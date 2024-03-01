@@ -60,6 +60,8 @@
     nodePackages.eslint
     nodePackages."@tailwindcss/language-server"
     nodePackages."@angular/cli"
-	  emscripten
+	  
+    # Osu! time
+    lutris
   ];
 }
