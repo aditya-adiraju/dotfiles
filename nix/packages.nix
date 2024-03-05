@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
     neovim
     zsh
@@ -61,7 +61,6 @@
     nodePackages."@tailwindcss/language-server"
     nodePackages."@angular/cli"
 	  
-    # Osu! time
-    lutris
-  ];
+    sage
+  ] ++ [inputs.nix-gaming.packages.${pkgs.system}.osu-stable];
 }

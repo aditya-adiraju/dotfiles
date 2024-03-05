@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "coc-pyright": ">=1.1.351",
+    "coc-solidity": ">=1.4.2"
+  },
+  "lastUpdate": 1709404799884
+}
