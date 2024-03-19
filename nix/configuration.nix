@@ -7,6 +7,13 @@
 {
   
   # import files
+  imports = [ ./cachix.nix ];
+
+  nix.settings = {
+    substituters = ["https://nix-gaming.cachix.org"];
+    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -77,7 +84,14 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
+  services.pipewire.extraConfig.pipewire."92-low-latency" = {
+    context.properties = {
+      default.clock.rate = 48000;
+      default.clock.quantum = 32;
+      default.clock.min-quantum = 32;
+      default.clock.max-quantum = 32;
+    };
+  };
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
@@ -96,6 +110,16 @@
     ];
   };
 
+  users.users."0day" = {
+    shell = pkgs.zsh;
+    isNormalUser = true;
+    description = "0 day";
+    extraGroups = [ ];
+    packages = with pkgs; [
+      firefox
+      neofetch
+    ];
+  };
   # Enable ZSH
   programs.zsh.enable = true;
 

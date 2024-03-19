@@ -61,6 +61,16 @@
     nodePackages."@tailwindcss/language-server"
     nodePackages."@angular/cli"
 	  
+
+    darling
+
+
     sage
-  ] ++ [inputs.nix-gaming.packages.${pkgs.system}.osu-stable];
+    osu-lazer-bin
+    jetbrains.pycharm-community-bin
+    poetry
+  ] ++ 
+  [
+    pkgs.cachix
+  ];
 }
