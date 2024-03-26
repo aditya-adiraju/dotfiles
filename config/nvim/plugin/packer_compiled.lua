@@ -209,6 +209,11 @@ _G.packer_plugins = {
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/vim-polyglot",
     url = "https://github.com/sheerun/vim-polyglot"
   },
+  ["vim-sage"] = {
+    loaded = true,
+    path = "/home/aditya/.local/share/nvim/site/pack/packer/start/vim-sage",
+    url = "https://github.com/petRUShka/vim-sage"
+  },
   vimtex = {
     loaded = true,
     path = "/home/aditya/.local/share/nvim/site/pack/packer/start/vimtex",

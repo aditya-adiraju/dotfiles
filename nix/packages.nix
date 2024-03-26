@@ -7,7 +7,7 @@
     git
     gh
     gdb
-    pwndbg
+    #pwndbg
     tilix
     tmux
     nix-ld
@@ -15,7 +15,7 @@
 	  zoom-us
     gnome3.gnome-tweaks
     gnome.gnome-themes-extra
-    (python3.withPackages(ps: with ps; [ pillow pwntools pycryptodome jedi-language-server ipython z3-solver ]))
+    (python3.withPackages(ps: with ps; [ pwntools pycryptodome jedi-language-server ipython z3-solver ]))
     wget
     wl-clipboard
     xclip
@@ -23,20 +23,17 @@
     unzip
     zip
     gimp
-    gnuradio
     virtualbox
     gdk-pixbuf
     xournalpp
     busybox
-	  ripgrep
     ghidra-bin
   	spotify
     vscode
-    zathura
   	man-pages
   	man-pages-posix
 	  # Oh god it's TeXLive my worst enemy (The storage kills)
-	  texliveFull
+		#texliveFull
     (vscode-with-extensions.override { 
       vscodeExtensions = with vscode-extensions; [
 	      ms-python.python
@@ -62,15 +59,19 @@
     nodePackages."@angular/cli"
 	  
 
-    darling
+    # Hyprland
+    #hyprpaper
+    #wireplumber
+    #kitty
+    #rofi-wayland
+    #gnome-icon-theme
 
 
     sage
     osu-lazer-bin
-    jetbrains.pycharm-community-bin
     poetry
   ] ++ 
   [
-    pkgs.cachix
+    #pkgs.cachix
   ];
 }

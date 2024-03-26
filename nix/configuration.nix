@@ -7,12 +7,6 @@
 {
   
   # import files
-  imports = [ ./cachix.nix ];
-
-  nix.settings = {
-    substituters = ["https://nix-gaming.cachix.org"];
-    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
-  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -45,6 +39,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Enable Hyprland
+  #programs.hyprland.enable = true;
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -67,6 +64,7 @@
   };
 
   services.printing.enable = true;
+
   
   # Enable sound with pipewire.
   sound.enable = true;

@@ -75,7 +75,8 @@ require('packer').startup(function(use)
       requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   }
   use { 'ms-jpq/chadtree', branch='chad', build='python3 -m chadtree deps' }
-
+  
+  use 'petRUShka/vim-sage'
   if packer_bootstrap then
     require('packer').sync()
   end

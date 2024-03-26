@@ -3,9 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nix-gaming = {
-      url = "github:aditya-adiraju/nix-gaming";
-    };
   };
 
     outputs = { self, nixpkgs, ... }@inputs: {
