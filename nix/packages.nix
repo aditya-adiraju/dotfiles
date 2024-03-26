@@ -57,15 +57,6 @@
     nodePackages.eslint
     nodePackages."@tailwindcss/language-server"
     nodePackages."@angular/cli"
-	  
-
-    # Hyprland
-    #hyprpaper
-    #wireplumber
-    #kitty
-    #rofi-wayland
-    #gnome-icon-theme
-
 
     sage
     osu-lazer-bin
