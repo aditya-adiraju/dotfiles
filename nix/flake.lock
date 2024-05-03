@@ -51,11 +51,11 @@
     "lix": {
       "flake": false,
       "locked": {
-        "lastModified": 1711469175,
-        "narHash": "sha256-m2/cEevhMyp7/rO7yg+TckUlyZu90xSRWq/TydCxNMw=",
+        "lastModified": 1714353561,
+        "narHash": "sha256-1OKjSB5kPw0Tnm/h4j1IZe6TfdX04QNbm1kn0q58Rls=",
         "ref": "refs/heads/main",
-        "rev": "007e6b580179b88db1638864572aa945093ad118",
-        "revCount": 15233,
+        "rev": "c0733f3cec9e5edd7fa3a4bf156b6ee065762fea",
+        "revCount": 15448,
         "type": "git",
         "url": "ssh://git@lix.systems/lix-project/lix"
       },
@@ -79,11 +79,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1711399509,
-        "narHash": "sha256-uSGd1oYatzLQ+vQ9HoROnx7FxboElVHkGQxy1vjXVUQ=",
+        "lastModified": 1713823914,
+        "narHash": "sha256-phAcUYvh3tuCTCBkB/i4cfU4QafrNub6rvRqD2Wcbt4=",
         "ref": "refs/heads/main",
-        "rev": "5d2b325d3a01040c8b9f1ac09fc73d932548afd5",
-        "revCount": 28,
+        "rev": "21907b875dcc5472faea29a0eabf114966fcff84",
+        "revCount": 53,
         "type": "git",
         "url": "ssh://git@lix.systems/lix-project/nixos-module"
       },
@@ -92,14 +92,13 @@
         "url": "ssh://git@lix.systems/lix-project/nixos-module"
       }
     },
-
     "nixpkgs": {
       "locked": {
-        "lastModified": 1710806803,
-        "narHash": "sha256-qrxvLS888pNJFwJdK+hf1wpRCSQcqA6W5+Ox202NDa0=",
+        "lastModified": 1714253743,
+        "narHash": "sha256-mdTQw2XlariysyScCv2tTE45QSU9v/ezLcHJ22f0Nxc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b06025f1533a1e07b6db3e75151caa155d1c7eb3",
+        "rev": "58a1abdbae3217ca6b702f03d3b35125d88a2994",
         "type": "github"
       },
       "original": {
