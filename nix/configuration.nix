@@ -13,7 +13,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   hardware.opentabletdriver.enable = true;
-
   # Enable Nix Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -120,6 +119,7 @@
   };
   # Enable ZSH
   programs.zsh.enable = true;
+  programs.zsh.vteIntegration = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -150,11 +150,17 @@
     zlib
     fuse3
     icu
-    zlib
     nss
     openssl
     curl
     expat
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libxcb
+    xorg.libXi
+    libxkbcommon
+    libseccomp
+    libsdl
   ];
 
   # default editor

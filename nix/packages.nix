@@ -57,9 +57,11 @@
     nodePackages.eslint
     nodePackages."@tailwindcss/language-server"
     nodePackages."@angular/cli"
+    slack
 
     sage
     osu-lazer-bin
+    websocat
 
     # An FHS shortcut to help us from the interwebs
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
