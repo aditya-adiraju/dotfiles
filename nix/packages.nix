@@ -60,6 +60,8 @@
     slack
 
     sage
+    gap-full
+    pari
     osu-lazer-bin
     websocat
 

@@ -178,11 +178,14 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-   networking.firewall.allowedTCPPorts = [ 4000 ];
+   #networking.firewall.allowedTCPPorts = [ 4000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
+  networking.firewall.allowedTCPPortRanges = [
+    { from = 4000; to = 5007; }
+    { from = 8000; to = 8010; }
+  ];
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
