@@ -60,6 +60,7 @@
     slack
 
     sage
+    fastfetch
     gap-full
     pari
     osu-lazer-bin

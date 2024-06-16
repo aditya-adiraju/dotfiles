@@ -102,7 +102,6 @@
     extraGroups = [ "docker" "networkmanager" "wheel" "user-with-access-to-virtualbox" ];
     packages = with pkgs; [
       firefox
-      neofetch
     ];
   };
 
@@ -113,7 +112,6 @@
     extraGroups = [ ];
     packages = with pkgs; [
       firefox
-      neofetch
     ];
   };
   # Enable ZSH
