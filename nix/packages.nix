@@ -36,8 +36,11 @@
 		#texliveFull
     (vscode-with-extensions.override { 
       vscodeExtensions = with vscode-extensions; [
-	      ms-python.python
-      ];
+        vscjava.vscode-java-pack
+        ms-python.python
+        ms-vscode-remote.remote-ssh
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    ];
     })
 
     # build tools
@@ -63,8 +66,10 @@
     fastfetch
     gap-full
     pari
-    osu-lazer-bin
+    #osu-lazer-bin
     websocat
+    openjdk
+    jetbrains.idea-community-bin
 
     # An FHS shortcut to help us from the interwebs
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
