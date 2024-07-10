@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     zsh
+    file
     oh-my-zsh
     htop
     git
@@ -13,8 +14,8 @@
     nix-ld
     google-chrome
 	  zoom-us
-    gnome3.gnome-tweaks
-    gnome.gnome-themes-extra
+    gnome-tweaks
+    gnome-themes-extra
     (python3.withPackages(ps: with ps; [ pwntools pycryptodome jedi-language-server ipython z3-solver ]))
     wget
     wl-clipboard
@@ -69,7 +70,9 @@
     #osu-lazer-bin
     websocat
     openjdk
+    oraclejdk8
     jetbrains.idea-community-bin
+    input-remapper
 
     # An FHS shortcut to help us from the interwebs
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
