@@ -4,6 +4,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ghidra="$HOME/Dev/ghidra_11.1.2_PUBLIC/ghidraRun"
 alias edit-nix-config="nvim ~/Dev/dotfiles/nix/configuration.nix"
 
 export NIXPKGS_ALLOW_UNFREE=1

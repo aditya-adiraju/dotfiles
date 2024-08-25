@@ -27,6 +27,8 @@
 	
   # Enable networking
   networking.networkmanager.enable = true;
+  services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "both";
 
   # Set your time zone.
   time.timeZone = "America/Vancouver";
@@ -46,7 +48,18 @@
 
   # docker support
   virtualisation.docker.enable = true;
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
 
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      # dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
   # VirtualBox Support
   #virtualisation.virtualbox.host.enable = true;
   #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
@@ -62,10 +75,16 @@
   };
 
   services.printing.enable = true;
+  services.printing.drivers = [pkgs.hplipWithPlugin];
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
   
   # Enable sound with pipewire.
-  sound.enable = true;
+  #sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -124,7 +143,12 @@
   nixpkgs.config.permittedInsecurePackages = [
        "openssl-1.1.1w"
   ];
-
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -157,6 +181,8 @@
     xorg.libXi
     libxkbcommon
     libseccomp
+    alsa-lib-with-plugins
+    gmp
   ];
 
   # default editor

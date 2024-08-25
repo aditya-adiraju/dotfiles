@@ -1,6 +1,8 @@
 {pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
+    hplipWithPlugin
     neovim
+    discord
     zsh
     file
     oh-my-zsh
@@ -28,7 +30,7 @@
     gdk-pixbuf
     xournalpp
     busybox
-    ghidra-bin
+    #ghidra-bin
   	spotify
     vscode
   	man-pages
@@ -50,6 +52,7 @@
 	  docker-compose
     gnumake
     # stdenv
+    stdenv.cc.cc.lib
     clang_16
     clang-tools_16
   	gcc
@@ -73,6 +76,10 @@
     oraclejdk8
     jetbrains.idea-community-bin
     input-remapper
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    docker-compose # start group of containers for dev
+    #podman-compose # start group of containers for dev
 
     # An FHS shortcut to help us from the interwebs
     (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
