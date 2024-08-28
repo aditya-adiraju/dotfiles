@@ -7,7 +7,6 @@
 {
   
   # import files
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -113,12 +112,15 @@
   # Enable flatpak repos
   services.flatpak.enable = true;
 
+  # adb stuff
+  programs.adb.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.aditya = {
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Aditya Adiraju";
-    extraGroups = [ "docker" "networkmanager" "wheel" "user-with-access-to-virtualbox" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" "user-with-access-to-virtualbox" "adbusers" ];
     packages = with pkgs; [
       firefox
     ];

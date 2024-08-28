@@ -65,7 +65,7 @@
     nodePackages."@tailwindcss/language-server"
     nodePackages."@angular/cli"
     slack
-
+    obsidian
     sage
     fastfetch
     gap-full
@@ -74,7 +74,6 @@
     websocat
     openjdk
     oraclejdk8
-    jetbrains.idea-community-bin
     input-remapper
     dive # look into docker image layers
     podman-tui # status of containers in the terminal
