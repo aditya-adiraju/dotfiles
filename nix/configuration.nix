@@ -8,8 +8,11 @@
   
   # import files
   # Bootloader.
+  boot.supportedFilesystems = [ "btrfs" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  nixpkgs.config.allowBroken = true;
 
   hardware.opentabletdriver.enable = true;
   # Enable Nix Flakes
@@ -18,8 +21,8 @@
   # Auto optimize hardlinks
   nix.settings.auto-optimise-store = true;
 
+  networking.hostId = "0e86aea3";
   networking.hostName = "nixos"; # Define your hostname.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -60,11 +63,10 @@
     };
   };
   # VirtualBox Support
-  #virtualisation.virtualbox.host.enable = true;
-  #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-  #virtualisation.virtualbox.guest.enable = true;
-  #virtualisation.virtualbox.guest.x11 = true;
-
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
 
   # Configurekeymap in X11
@@ -120,7 +122,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Aditya Adiraju";
-    extraGroups = [ "docker" "networkmanager" "wheel" "user-with-access-to-virtualbox" "adbusers" ];
+    extraGroups = [ "docker" "networkmanager" "wheel" "user-with-access-to-virtualbox" "adbusers" "vboxusers" ];
     packages = with pkgs; [
       firefox
     ];

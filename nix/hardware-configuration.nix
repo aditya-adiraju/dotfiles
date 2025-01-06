@@ -8,22 +8,27 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1a8a0598-7a0b-4cee-a068-d5f02ebd1be5";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/70a01418-64de-4399-ad06-fc0188d370a2";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
     };
+
+  boot.initrd.luks.devices."luks-a439750c-b5f9-435b-913a-26c04f251a06".device = "/dev/disk/by-uuid/a439750c-b5f9-435b-913a-26c04f251a06";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/F665-1446";
       fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
     };
-  
-  swapDevices = [ { device = "/var/swap"; size = 4096; } ];
+
+  swapDevices = [ ];
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
@@ -32,6 +37,5 @@
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

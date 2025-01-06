@@ -1,8 +1,11 @@
 {pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
     hplipWithPlugin
+    obsidian
+    musescore
+    zed-editor
     neovim
-    discord
+    vesktop
     zsh
     file
     oh-my-zsh
@@ -18,7 +21,7 @@
 	  zoom-us
     gnome-tweaks
     gnome-themes-extra
-    (python3.withPackages(ps: with ps; [ pwntools pycryptodome jedi-language-server ipython z3-solver ]))
+    (python3.withPackages(ps: with ps; [ requests tqdm numpy gmpy2 pwntools pycryptodome jedi-language-server ipython z3-solver ]))
     wget
     wl-clipboard
     xclip
@@ -26,7 +29,6 @@
     unzip
     zip
     gimp
-    virtualbox
     gdk-pixbuf
     xournalpp
     busybox
@@ -73,33 +75,9 @@
     #osu-lazer-bin
     websocat
     openjdk
-    oraclejdk8
     input-remapper
     dive # look into docker image layers
-    podman-tui # status of containers in the terminal
     docker-compose # start group of containers for dev
-    #podman-compose # start group of containers for dev
-
-    # An FHS shortcut to help us from the interwebs
-    (let base = pkgs.appimageTools.defaultFhsEnvArgs; in
-          pkgs.buildFHSUserEnv (base // {
-          name = "fhs";
-          targetPkgs = pkgs: (
-            # pkgs.buildFHSUserEnv provides only a minimal FHS environment,
-            # lacking many basic packages needed by most software.
-            # Therefore, we need to add them manually.
-            #
-            # pkgs.appimageTools provides basic packages required by most software.
-            (base.targetPkgs pkgs) ++ [
-              pkgs.pkg-config
-              pkgs.ncurses
-              # Feel free to add more packages here if needed.
-            ]
-          );
-          profile = "export FHS=1";
-          runScript = "bash";
-          extraOutputsToInstall = ["dev"];
-        }))
   ] ++ 
   [
     #pkgs.cachix
