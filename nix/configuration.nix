@@ -209,7 +209,7 @@
    #networking.firewall.allowedTCPPorts = [ 4000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+   networking.firewall.enable = false;
   networking.firewall.allowedTCPPortRanges = [
     { from = 4000; to = 5007; }
     { from = 8000; to = 8010; }

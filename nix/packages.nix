@@ -34,19 +34,11 @@
     busybox
     #ghidra-bin
   	spotify
-    vscode
+    vscode-fhs # please work please make my life easy
   	man-pages
   	man-pages-posix
 	  # Oh god it's TeXLive my worst enemy (The storage kills)
 		#texliveFull
-    (vscode-with-extensions.override { 
-      vscodeExtensions = with vscode-extensions; [
-        vscjava.vscode-java-pack
-        ms-python.python
-        ms-vscode-remote.remote-ssh
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-    ];
-    })
 
     # build tools
     # Things that should be migrated to shell.nix or flake.nix
@@ -78,6 +70,8 @@
     input-remapper
     dive # look into docker image layers
     docker-compose # start group of containers for dev
+    go
+    gopls
   ] ++ 
   [
     #pkgs.cachix
