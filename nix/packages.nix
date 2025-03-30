@@ -1,5 +1,8 @@
 {pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
+    rustup
+    pinentry-curses
+    gnupg
     hplipWithPlugin
     obsidian
     musescore

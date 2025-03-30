@@ -32,6 +32,7 @@
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "both";
 
+  services.ollama.enable = true;
   # Set your time zone.
   time.timeZone = "America/Vancouver";
 
@@ -50,6 +51,7 @@
 
   # docker support
   virtualisation.docker.enable = true;
+  virtualisation.docker.extraOptions = "--insecure-registry us-west1-docker.pkg.dev";
   virtualisation.containers.enable = true;
   virtualisation = {
     podman = {
@@ -157,10 +159,13 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+    enableSSHSupport = true;
+  };
 
  users.defaultUserShell = pkgs.zsh;
 
@@ -209,7 +214,7 @@
    #networking.firewall.allowedTCPPorts = [ 4000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-   networking.firewall.enable = false;
+   networking.firewall.enable = true;
   networking.firewall.allowedTCPPortRanges = [
     { from = 4000; to = 5007; }
     { from = 8000; to = 8010; }
