@@ -1,6 +1,8 @@
 {pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
-    rustup
+    nomachine-client
+    rustc
+    cargo
     pinentry-curses
     gnupg
     hplipWithPlugin
