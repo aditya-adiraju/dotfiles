@@ -24,7 +24,7 @@
 	  zoom-us
     gnome-tweaks
     gnome-themes-extra
-    (python3.withPackages(ps: with ps; [ requests tqdm numpy gmpy2 pwntools pycryptodome jedi-language-server ipython z3-solver ]))
+    (python3.withPackages(ps: with ps; [ requests tqdm numpy gmpy2 pwntools pycryptodome jedi-language-server ipython z3-solver pandas ]))
     wget
     wl-clipboard
     xclip
@@ -76,6 +76,9 @@
     ulauncher
     alacritty
     openvpn
+    networkmanager-openvpn
+    haskell-language-server
+    ghc
   ] ++ 
   [
     #pkgs.cachix
