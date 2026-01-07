@@ -13,6 +13,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   nixpkgs.config.allowBroken = true;
+  nix.package = pkgs.lix;
 
   hardware.opentabletdriver.enable = true;
   # Enable Nix Flakes
@@ -26,7 +27,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-	
   # Enable networking
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
@@ -67,10 +67,6 @@
     };
   };
   # VirtualBox Support
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; 
 
   # Configurekeymap in X11
@@ -90,7 +86,7 @@
   
   # Enable sound with pipewire.
   #sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -150,6 +146,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
        "openssl-1.1.1w"
+      "libsoup-2.74.3"
   ];
   programs.steam = {
     enable = true;

@@ -9,7 +9,6 @@
     obsidian
     musescore
     neovim
-    vesktop
     zsh
     file
     oh-my-zsh
@@ -47,20 +46,19 @@
     gnumake
     # stdenv
     stdenv.cc.cc.lib
-    clang_16
-    clang-tools_16
+    clang_multi
+    clang-tools
   	gcc
     nodePackages.nodejs
     nodePackages.typescript-language-server
     nodePackages.prettier
     nodePackages.http-server
-    nodePackages.live-server
     nodePackages.eslint
     nodePackages."@tailwindcss/language-server"
     nodePackages."@angular/cli"
     slack
     obsidian
-    sage
+    #sage
     fastfetch
     gap-full
     pari
@@ -79,6 +77,10 @@
     networkmanager-openvpn
     haskell-language-server
     ghc
+
+    mako
+
+    gef
   ] ++ 
   [
     #pkgs.cachix
