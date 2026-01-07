@@ -81,6 +81,7 @@
     mako
 
     gef
+    ripgrep
   ] ++ 
   [
     #pkgs.cachix
