@@ -78,10 +78,15 @@
     haskell-language-server
     ghc
 
+    grim
+    slurp
     mako
 
     gef
     ripgrep
+    patchelf
+    wezterm
+
   ] ++ 
   [
     #pkgs.cachix
