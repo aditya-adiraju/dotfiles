@@ -39,6 +39,9 @@
   	man-pages
   	man-pages-posix
 
+    android-tools
+
+
     # build tools
     # Things that should be migrated to shell.nix or flake.nix
 	  docker

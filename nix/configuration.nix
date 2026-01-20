@@ -114,9 +114,6 @@
   # Enable flatpak repos
   services.flatpak.enable = true;
 
-  # adb stuff
-  programs.adb.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.aditya = {
     shell = pkgs.zsh;
@@ -344,6 +341,8 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
+  programs.waybar.enable = true;
 
   # Open ports in the firewall.
    #networking.firewall.allowedTCPPorts = [ 4000 ];
