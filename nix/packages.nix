@@ -61,7 +61,7 @@
     nodePackages."@angular/cli"
     slack
     obsidian
-    #sage
+    sage
     fastfetch
     gap-full
     pari
@@ -69,8 +69,6 @@
     websocat
     openjdk
     input-remapper
-    dive # look into docker image layers
-    docker-compose # start group of containers for dev
     go
     wayland-utils # Wayland utilities
     wmctrl
@@ -90,6 +88,9 @@
     patchelf
     wezterm
 
+
+    typst # uwu
+    tinymist
   ] ++ 
   [
     #pkgs.cachix
