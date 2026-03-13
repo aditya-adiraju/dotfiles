@@ -24,6 +24,7 @@
 
   networking.hostId = "0e86aea3";
   networking.hostName = "nixos"; # Define your hostname.
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -163,11 +164,10 @@
     enableSSHSupport = true;
   };
 
- users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.zsh;
 
   # I love man pages
   documentation.dev.enable = true;
-
 
   
   # Automatically creates a loader in /lib/* to avoid patching stuff
@@ -331,18 +331,7 @@
     user.email = "adiraju@student.ubc.ca";
     user.name = "aditya-adiraju";
   };
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
-
-  # maybe I should try sway 
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  programs.waybar.enable = true;
 
   # Open ports in the firewall.
    #networking.firewall.allowedTCPPorts = [ 4000 ];

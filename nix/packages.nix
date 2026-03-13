@@ -1,96 +1,80 @@
 {pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
-    nomachine-client
-    rustc
+
+    # Language-specific tools
+    (python3.withPackages(ps: with ps; [ requests tqdm numpy gmpy2 pwntools pycryptodome ipython z3-solver pandas ]))
     cargo
+    clang-tools
+    clang_multi
+    gap-full
+    gcc
+    ghc
+    gnumake
+    go
+    haskell-language-server
+    nix-ld
+    nodePackages.eslint
+    nodePackages.http-server
+    nodePackages.nodejs
+    nodePackages.prettier
+    nodePackages.typescript-language-server
+    openjdk
+    pari
+    patchelf
+    rustc
+    stdenv.cc.cc.lib
+    typst # uwu
+    vscode-fhs # please work please make my life easy
     pinentry-curses
     gnupg
-    hplipWithPlugin
-    obsidian
-    musescore
-    neovim
-    zsh
-    file
-    oh-my-zsh
-    htop
-    git
-    gh
-    gdb
-    tilix
-    tmux
-    nix-ld
+
+
+    # User applications
+    firefox
+    gimp
     google-chrome
-	  zoom-us
-    gnome-tweaks
-    gnome-themes-extra
-    (python3.withPackages(ps: with ps; [ requests tqdm numpy gmpy2 pwntools pycryptodome jedi-language-server ipython z3-solver pandas ]))
-    wget
-    wl-clipboard
-    xclip
+    slack
+    spotify
+    xournalpp
+    zoom-us
+
+
+    # Basic CLI tools/terminal
+    busybox
+    docker
+    docker-compose
+    fastfetch
+    file
+    gdb
+    gef
+    git
+    htop
+    man-pages
+    man-pages-posix
+    neovim
+    networkmanager-openvpn
+    oh-my-zsh
+    openvpn
+    ripgrep
+    tmux
     trash-cli
     unzip
-    zip
-    gimp
-    gdk-pixbuf
-    xournalpp
-    busybox
-  	spotify
-    vscode-fhs # please work please make my life easy
-  	man-pages
-  	man-pages-posix
-
-    android-tools
-
-
-    # build tools
-    # Things that should be migrated to shell.nix or flake.nix
-	  docker
-	  docker-compose
-    gnumake
-    # stdenv
-    stdenv.cc.cc.lib
-    clang_multi
-    clang-tools
-  	gcc
-    nodePackages.nodejs
-    nodePackages.typescript-language-server
-    nodePackages.prettier
-    nodePackages.http-server
-    nodePackages.eslint
-    nodePackages."@tailwindcss/language-server"
-    nodePackages."@angular/cli"
-    slack
-    obsidian
-    sage
-    fastfetch
-    gap-full
-    pari
-    #osu-lazer-bin
     websocat
-    openjdk
-    input-remapper
-    go
-    wayland-utils # Wayland utilities
-    wmctrl
-    ulauncher
-    alacritty
-    openvpn
-    networkmanager-openvpn
-    haskell-language-server
-    ghc
-
-    grim
-    slurp
-    mako
-
-    gef
-    ripgrep
-    patchelf
     wezterm
+    wget
+    xclip
+    zip
+    zsh
 
+    # DE Helpers
+    gnome-themes-extra
+    gnome-tweaks
+    wl-clipboard
+    wayland-utils
 
-    typst # uwu
-    tinymist
+    # Special tools
+    hplipWithPlugin
+
   ] ++ 
   [
     #pkgs.cachix
